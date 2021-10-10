@@ -1,17 +1,11 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-export default function Result({ finalResult, error }) {
+export default function Result({ finalResult, errorForm }) {
     return (
         <View style={styles.resultContainer}>
-            {error === null ?
-                (
-                    <Text style={styles.labelResult}>El resultado es: {finalResult}</Text>
-                ) :
-                (
-                    <Text style={styles.labelResult}>{error}</Text>
-                )
-            }
+            {errorForm === null ? <Text style={styles.labelResult}>El resultado es: {finalResult}</Text> : null}
+            {typeof errorForm === 'object' ? <Text style={styles.labelResult}>Error: {errorForm.message}</Text> : null}
         </View>
     )
 }

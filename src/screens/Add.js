@@ -42,7 +42,7 @@ export default Add = () => {
             </View>
             <View>
                 {result && (
-                    <Result finalResult={result} error={null} />
+                    <Result finalResult={result} errorForm={null} />
                 )}
             </View>
         </>
