@@ -40,7 +40,7 @@ export default function Factorial() {
             </View>
             <View>
                 {result && (
-                    <Result finalResult={result} error={null} />
+                    <Result finalResult={result} errorForm={null} />
                 )}
             </View>
         </>
@@ -55,6 +55,6 @@ function initialValues() {
 
 function validationSchema() {
     return {
-        first_num: Yup.number().moreThan(0).required(true)
+        first_num: Yup.number().moreThan(-1).required(true)
     }
 }

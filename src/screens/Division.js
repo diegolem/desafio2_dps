@@ -8,7 +8,7 @@ import Result from '../components/Result';
 
 export default function Division() {
     const [result, setResult] = useState(null);
-    const [error, setError] = useState(null);
+    const [errorForm, setErrorForm] = useState(null);
 
     const formik = useFormik({
         initialValues: initialValues(),
@@ -16,10 +16,10 @@ export default function Division() {
         onSubmit: (formData) => {
             if (parseFloat(formData.second_num) !== 0) {
                 setResult(parseFloat(formData.first_num) / parseFloat(formData.second_num));
-                setError(null);
+                setErrorForm(null);
             } else {
-                setResult(0);
-                setError('El segundo numero debe ser diferente de 0');
+                setResult("0");
+                setErrorForm({ message: 'El segundo numero debe ser diferente de 0' });
             }
         }
     })
@@ -49,7 +49,7 @@ export default function Division() {
             </View>
             <View>
                 {result && (
-                    <Result finalResult={result} error={error} />
+                    <Result finalResult={result} errorForm={errorForm} />
                 )}
             </View>
         </>
