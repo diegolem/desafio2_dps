@@ -5,7 +5,7 @@ export default function Result({ finalResult, errorForm }) {
     return (
         <View style={styles.resultContainer}>
             {errorForm === null ? <Text style={styles.labelResult}>El resultado es: {finalResult}</Text> : null}
-            {typeof errorForm === 'object' ? <Text style={styles.labelResult}>Error: {errorForm.message}</Text> : null}
+            {typeof errorForm === 'object' && errorForm !== null ? <Text style={styles.labelResult}>Error: {errorForm.message}</Text> : null}
         </View>
     )
 }
